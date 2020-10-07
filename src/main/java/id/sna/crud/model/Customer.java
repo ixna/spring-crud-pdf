@@ -1,11 +1,29 @@
 package id.sna.crud.model;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 public class Customer {
 	private String id;
+	
+	@NotNull
+	@Size(min=1, max=50)
+    @Pattern(regexp="^[a-zA-Z0-9]+$", message="Data nama tidak sesuai ketentuan")
     private String name;
+	
+	@NotNull
+	@Size(max=3)
+    @Pattern(regexp="^[a-zA-Z]+$", message="Data Kota tidak sesuai ketentuan")
     private String idKota;
     private String namaKota;
+    
+    @NotNull
+	@Size(min=1, max=255)
+    @Pattern(regexp="^[a-zA-Z0-9]+$", message="Data Alamat tidak sesuai ketentuan")
     private String alamat;
+    
+    @Pattern(regexp="^\\d{0,16}(?:\\.\\d{0,2})?$", message="Data nama tidak sesuai ketentuan")
     private String  pendapatan;
     
     public Customer() {
